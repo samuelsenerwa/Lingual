@@ -1,5 +1,6 @@
-// I prefer using named export for components
-import { Button } from "@/components/ui/button";
+"use client";
+
+//  I prefer using named export for components
 import {
   ClerkLoaded,
   ClerkLoading,
@@ -10,6 +11,7 @@ import {
 } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export const Header = () => {
   return (
