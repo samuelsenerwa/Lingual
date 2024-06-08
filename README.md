@@ -34,3 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+ ## Running drizzle scripts
+
+add these lines in your `package.json` file
+ ```
+
+ "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
+ "db:migrate": "bun ./script/migrate.ts",
+ "db:studio": "drizzle-kit studio"
+
+ ```
+
+ Alternative for this one ` "db:migrate": "bun ./script/migrate.ts",` can be using `tsx` to run it simply by typing ` "db:migrate": "tsx ./script/migrate.ts",` the reason is node doesn't support the content that I have included in my `migrate.ts` file, technically is like we're doing a work around.
+
+
+ ## Running them in the terminal
+ ### 1. Generating migration
+Make sure to run the scripts independetly
+ ```
+
+npm run dev
+
+npm run db:generate
+
+ ```
+
+### 2. Pushing the scripts to Neon using Drizzle ORM
+```
+npm run db:migrate
+
+```
+if you get the error of `pg` not installed you can simply do `npm add pg -D`
+
+
+**DISCLAIMER!** If this
