@@ -1,14 +1,18 @@
-// import "dotenv/config";
-// import type { Config } from "drizzle-kit";
+import dotenv from "dotenv";
+import type { Config } from "drizzle-kit";
 
-// export default {
-//   schema: "./db/schema.ts",
-//   out: "./drizzle",
-//   driver: "pg",
-//   dbCredentials: {
-//     connectionString: process.env.DATABASE_URL!,
-//   },
-// } satisfies Config;
+dotenv.config({ path: ".env.local" });
+
+export default {
+  dialect: "postgresql",
+  schema: "./db/schema.ts",
+  out: "./drizzle",
+  // driver: "pg",
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+  },
+  // @ts-ignore
+} satisfies Config;
 
 // import { config } from "dotenv";
 // import { defineConfig } from "drizzle-kit";
@@ -27,12 +31,18 @@
 //   strict: true,
 // });
 
-import { defineConfig } from "drizzle-kit";
+// import { defineConfig } from "drizzle-kit";
+// import dotenv from "dotenv";
 
-export default defineConfig({
-  dialect: "postgresql",
-  schema: "./src/server/db/schema.ts",
-  dbCredentials: {
-    url: process.env.DATABASE_URL as string,
-  },
-});
+// dotenv.config({ path: ".env.local" });
+
+// // @ts-ignore
+// export default defineConfig({
+//   dialect: "postgresql",
+//   schema: "./db/schema.ts",
+//   out: "./drizzle",
+//   driver: "pg",
+//   dbCredentials: {
+//     url: process.env.DATABASE_URL as string,
+//   },
+// });

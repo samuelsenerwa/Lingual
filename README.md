@@ -41,13 +41,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 add these lines in your `package.json` file
  ```
 
- "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
+ "db:generate": "pnpm drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
  "db:migrate": "bun ./script/migrate.ts",
- "db:studio": "drizzle-kit studio"
+ "db:studio": "pnpm drizzle-kit studio"
 
  ```
 
- Alternative for this one ` "db:migrate": "bun ./script/migrate.ts",` can be using `tsx` to run it simply by typing ` "db:migrate": "tsx ./script/migrate.ts",` the reason is node doesn't support the content that I have included in my `migrate.ts` file, technically is like we're doing a work around.
+ Alternative for this one ` "db:migrate": "bun ./script/migrate.ts",` can be using `tsx` to run it simply by typing ` "db:migrate": "tsx ./script/migrate.ts",` the reason is node doesn't support the content that I have included in my `migrate.ts` file, technically is like we're doing a work around. For more information you can checkout drizzle documentation for advanced guide.
 
 
  ## Running them in the terminal
@@ -55,18 +55,18 @@ add these lines in your `package.json` file
 Make sure to run the scripts independetly
  ```
 
-npm run dev
+pnpm dev
 
-npm run db:generate
+pnpm db:generate
 
  ```
 
 ### 2. Pushing the scripts to Neon using Drizzle ORM
 ```
-npm run db:migrate
+pnpm db:migrate
 
 ```
 if you get the error of `pg` not installed you can simply do `npm add pg -D`
 
 
-**DISCLAIMER!** If this
+**DISCLAIMER!** If this doesn't work, kindly check my `package.json` to adjust the version of drizzle you're using.
