@@ -2,10 +2,11 @@
 
 import { courses } from "@/db/schema";
 import { Card } from "./card";
+import { userProgress } from "@/schema";
 
 type Props = {
   courses: (typeof courses.$inferSelect)[];
-  activeCourseId: number;
+  activeCourseId?: typeof userProgress.$inferSelect.activeCourseId;
 };
 
 export const List = ({ courses, activeCourseId }: Props) => {
