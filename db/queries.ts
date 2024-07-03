@@ -5,7 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { courses, userProgress } from "@/db/schema";
 
 export const getUserProgress = cache(async () => {
-  const { userId } = await auth();
+  const { userId } = auth();
 
   if (!userId) {
     return null;

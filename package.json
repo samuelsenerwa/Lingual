@@ -2,6 +2,7 @@
   "name": "lingo",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +10,9 @@
     "db:push": "pnpm drizzle-kit push",
     "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
     "db:studio": "pnpm drizzle-kit studio",
-    "db:seed": "pnpm tsx ./server/scripts/seed.ts",
-    "db:reset": "pnpm tsx ./server/scripts/reset.ts",
-    "db:prod": "pnpm tsx ./server/scripts/prod.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reset": "tsx scripts/reset.ts",
+    "db:prod": "tsx scripts/prod.ts",
     "lint": "next lint"
   },
   "dependencies": {
@@ -29,12 +30,13 @@
     "lucide-react": "^0.383.0",
     "next": "14.2.2",
     "next-themes": "^0.3.0",
+    "punycode": "^2.3.1",
     "ra-data-simple-rest": "^4.16.17",
-    "react": "^18",
+    "react": "^18.3.1",
     "react-admin": "^4.16.18",
     "react-circular-progressbar": "^2.1.0",
     "react-confetti": "^6.1.0",
-    "react-dom": "^18",
+    "react-dom": "^18.3.1",
     "react-use": "^17.5.0",
     "sonner": "^1.5.0",
     "stripe": "^15.8.0",
@@ -43,7 +45,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.14.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "dotenv": "^16.4.5",
