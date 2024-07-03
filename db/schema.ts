@@ -85,7 +85,7 @@ export const challengesRelation = relations(challenges, ({ one, many }) => ({
   challengeProgress: many(challengeProgress),
 }));
 
-export const challengeOptions = pgTable("challengesOptions", {
+export const challengeOptions = pgTable("challenges_options", {
   id: serial("id").primaryKey(),
   challengeId: integer("challenge_id")
     .references(() => challenges.id, {
@@ -111,7 +111,7 @@ export const challengeOptionsRelations = relations(
 
 // challenge progress schema
 
-export const challengeProgress = pgTable("challengeProgress", {
+export const challengeProgress = pgTable("challenge_progress", {
   id: serial("id").primaryKey(),
   userId: text("user_id").notNull(), //TODO: confirm it doesn't break
   challengeId: integer("challeng_id")
