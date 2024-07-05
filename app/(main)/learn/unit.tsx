@@ -1,4 +1,4 @@
-import { lessons, units } from "@/schema";
+import { lessons, units } from "@/db/schema";
 import { UnitBanner } from "./unit-banner";
 import { LessonButton } from "./lesson-button";
 
@@ -15,6 +15,7 @@ type Props = {
         unit: typeof units.$inferSelect;
       })
     | undefined;
+
   activeLessonPercentage: number;
 };
 
