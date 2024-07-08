@@ -10,9 +10,9 @@
     "db:push": "pnpm drizzle-kit push",
     "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
     "db:studio": "pnpm drizzle-kit studio",
-    "db:seed": "tsx scripts/seed.ts",
-    "db:reset": "tsx scripts/reset.ts",
-    "db:prod": "tsx scripts/prod.ts",
+    "db:seed": "bun ./scripts/seed.ts",
+    "db:reset": "bun ./scripts/reset.ts",
+    "db:prod": "bun ./scripts/prod.ts",
     "lint": "next lint"
   },
   "dependencies": {
