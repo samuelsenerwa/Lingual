@@ -36,6 +36,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
+
+
  ## Running drizzle scripts
 
 add these lines in your `package.json` file
@@ -63,10 +65,13 @@ pnpm db:generate
 
 ### 2. Pushing the scripts to Neon using Drizzle ORM
 ```
-pnpm db:migrate
+pnpm drizzle-kit migrate
 
 ```
 if you get the error of `pg` not installed you can simply do `npm add pg -D`
 
 
 **DISCLAIMER!** If this doesn't work, kindly check my `package.json` to adjust the version of drizzle you're using.
+
+# Screenshots
+![Screenshot from 2024-07-09 09-58-27](https://github.com/samuelsenerwa/Lingual/assets/66512735/f7885803-cd5e-4e77-9a62-8adbdf869824)
