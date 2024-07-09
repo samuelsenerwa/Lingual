@@ -58,3 +58,6 @@ if you get the error of `pg` not installed you can simply do `npm add pg -D`
 
 # Screenshots
 ![Screenshot from 2024-07-09 09-58-27](https://github.com/samuelsenerwa/Lingual/assets/66512735/f7885803-cd5e-4e77-9a62-8adbdf869824)
+
+# LICENSE
+The project is licensed by GNU GENERAL PUBLIC LICENSE
