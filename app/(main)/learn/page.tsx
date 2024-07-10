@@ -55,7 +55,7 @@ const LearnPage = async () => {
               title={unit.title}
               lessons={unit.lessons}
               activeLesson={
-                courseProgress.activeLessson as
+                courseProgress.activeLesson as
                   | (typeof lessons.$inferSelect & {
                       unit: typeof unitsSchema.$inferSelect;
                     })
