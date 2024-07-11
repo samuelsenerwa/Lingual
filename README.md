@@ -20,17 +20,44 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+ ## Running drizzle scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+add these lines in your `package.json` file
+ ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ "db:generate": "pnpm drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
+ "db:migrate": "bun ./script/migrate.ts",
+ "db:studio": "pnpm drizzle-kit studio"
 
-## Deploy on Vercel
+ ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ Alternative for this one ` "db:migrate": "bun ./script/migrate.ts",` can be using `tsx` to run it simply by typing ` "db:migrate": "tsx ./script/migrate.ts",` the reason is node doesn't support the content that I have included in my `migrate.ts` file, technically is like we're doing a work around. For more information you can checkout drizzle documentation for advanced guide.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+ ## Running them in the terminal
+ ### 1. Generating migration
+Make sure to run the scripts independetly
+ ```
+
+pnpm dev
+
+pnpm db:generate
+
+ ```
+
+### 2. Pushing the scripts to Neon using Drizzle ORM
+```
+pnpm drizzle-kit migrate
+
+```
+if you get the error of `pg` not installed you can simply do `npm add pg -D`
+
+
+**DISCLAIMER!** If this doesn't work, kindly check my `package.json` to adjust the version of drizzle you're using.
+
+# Screenshots
+![Screenshot from 2024-07-09 09-58-27](https://github.com/samuelsenerwa/Lingual/assets/66512735/f7885803-cd5e-4e77-9a62-8adbdf869824)
+
+# LICENSE
+The project is licensed by GNU GENERAL PUBLIC LICENSE
