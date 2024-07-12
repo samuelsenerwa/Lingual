@@ -37,6 +37,17 @@ export const Quiz = ({
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
 
+  const [selectedOption, setSelectedOption] = useState<number>();
+  const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
+
+  const onSelect = (id: number) => {
+    if (status !== "none") {
+      return;
+    }
+
+    setSelectedOption(id);
+  };
+
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
 
@@ -64,9 +75,9 @@ export const Quiz = ({
               )}
               <Challenge
                 options={options}
-                onSelect={() => {}}
-                status="none"
-                selectedOption={undefined}
+                onSelect={onSelect}
+                status={status}
+                selectedOption={selectedOption}
                 disabled={false}
                 type={challenge.type}
               />
