@@ -52,6 +52,38 @@ export const Quiz = ({
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
 
+  const onNext = () => {
+    setActiveIndex((current) => current + 1);
+  };
+
+  const onContinue = () => {
+    if (!selectedOption) return;
+
+    if (status === "wrong") {
+      setStatus("none");
+      setSelectedOption(undefined);
+      return;
+    }
+    if (status === "correct") {
+      onNext();
+      setStatus("none");
+      setSelectedOption(undefined);
+      return;
+    }
+
+    const correctOption = options.find((option) => option.correct);
+
+    if (!correctOption) {
+      return;
+    }
+
+    if (correctOption && correctOption.id === selectedOption) {
+      console.log("Correct option!");
+    } else {
+      console.error("incorrect option!");
+    }
+  };
+
   const title =
     challenge.type === "ASSIST"
       ? "Select the correct meaning"
@@ -89,7 +121,7 @@ export const Quiz = ({
 
       {/* Footer Component */}
 
-      <Footer disabled={!selectedOption} status={status} onCheck={() => {}} />
+      <Footer disabled={!selectedOption} status={status} onCheck={onContinue} />
     </>
   );
 };
