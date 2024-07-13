@@ -1,7 +1,7 @@
-"use server";
+"use client";
 
-import { challenges, challengeOptions } from "@/db/schema";
 import { useState, useTransition } from "react";
+import { challenges, challengeOptions } from "@/db/schema";
 import { Header } from "./header";
 import QuestionBubble from "./question-bubble";
 import { Challenge } from "./challenge";

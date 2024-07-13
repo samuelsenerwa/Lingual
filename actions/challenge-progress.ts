@@ -1,4 +1,4 @@
-"user server";
+"use server";
 
 import { getUserProgress } from "@/db/queries";
 import { auth } from "@clerk/nextjs/server";
