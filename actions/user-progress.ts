@@ -87,7 +87,7 @@ export const reduceHearts = async (challengeId: number) => {
   const isPractice = !!existingChallengeProgress;
 
   if (isPractice) {
-    return { reason: "practice" }; //error can also be used instead
+    return { error: "practice" }; //error can also be used instead
   }
 
   if (!currentUserProgress) {
@@ -97,7 +97,7 @@ export const reduceHearts = async (challengeId: number) => {
   // TODO: handle sunscription
 
   if (currentUserProgress.hearts === 0) {
-    return { reason: "hearts" };
+    return { error: "hearts" };
   }
 
   await db
