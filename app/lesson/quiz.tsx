@@ -9,8 +9,11 @@ import { Footer } from "./footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
 import { reduceHearts } from "@/actions/user-progress";
-import { useAudio } from "react-use";
+import { useAudio, useWindowSize } from "react-use";
 import Image from "next/image";
+import { ResultCard } from "./result-card";
+import { useRouter } from "next/navigation";
+import Confetti from "react-confetti";
 
 type Props = {
   initialPercentage: number;
@@ -30,6 +33,11 @@ export const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: Props) => {
+  const { width, height } = useWindowSize();
+
+  // adding a router to handle complete or practice again
+  const router = useRouter();
+
   const [pending, startTransition] = useTransition();
 
   const [correctAudio, _c, correctControls] = useAudio({ src: "/correct.wav" });
@@ -38,6 +46,7 @@ export const Quiz = ({
     src: "/incorrect.wav",
   });
 
+  const [lessonId] = useState(initialLessonId);
   const [hearts, setHearts] = useState(initialHearts);
   const [percentage, setpercentage] = useState(initialPercentage);
   const [challenges] = useState(initialLessonChallenges);
@@ -135,6 +144,13 @@ export const Quiz = ({
   if (!challenge) {
     return (
       <>
+        <Confetti
+          recycle={false}
+          numberOfPieces={500}
+          tweenDuration={10000}
+          width={width}
+          height={height}
+        />
         <div className="flex flex-col gap-y-4 lg:gap-y-8 ,ax-w-lg mx-auto text-center items-center justify-center h-full">
           <Image
             src="/finish.svg"
@@ -155,8 +171,15 @@ export const Quiz = ({
           </h1>
           <div className="flex items-center gap-x-4 w-full">
             <ResultCard variant="points" value={challenges.length * 10} />
+            <ResultCard variant="hearts" value={hearts} />
           </div>
         </div>
+
+        <Footer
+          lessonId={lessonId}
+          status="complete"
+          onCheck={() => router.push("/learn")}
+        />
       </>
     );
   }
