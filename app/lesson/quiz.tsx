@@ -38,6 +38,8 @@ export const Quiz = ({
   // adding a router to handle complete or practice again
   const router = useRouter();
 
+  const [finishAudio] = useAudio({ src: "/finish.mp3 ", autoPlay: true });
+
   const [pending, startTransition] = useTransition();
 
   const [correctAudio, _c, correctControls] = useAudio({ src: "/correct.wav" });
@@ -144,6 +146,7 @@ export const Quiz = ({
   if (!challenge) {
     return (
       <>
+        {finishAudio}
         <Confetti
           recycle={false}
           numberOfPieces={500}
