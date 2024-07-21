@@ -1,5 +1,5 @@
 {
-  "id": "8e1b549e-e896-4ea6-b7dd-f561aef658a0",
+  "id": "9c52dc78-cb21-46eb-9c87-3ed46626ef7c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -227,10 +227,10 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "lessons_unit_id_uits_id_fk": {
-          "name": "lessons_unit_id_uits_id_fk",
+        "lessons_unit_id_units_id_fk": {
+          "name": "lessons_unit_id_units_id_fk",
           "tableFrom": "lessons",
-          "tableTo": "uits",
+          "tableTo": "units",
           "columnsFrom": [
             "unit_id"
           ],
@@ -244,8 +244,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.uits": {
-      "name": "uits",
+    "public.units": {
+      "name": "units",
       "schema": "",
       "columns": {
         "id": {
@@ -281,9 +281,9 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "uits_courseId_courses_id_fk": {
-          "name": "uits_courseId_courses_id_fk",
-          "tableFrom": "uits",
+        "units_courseId_courses_id_fk": {
+          "name": "units_courseId_courses_id_fk",
+          "tableFrom": "units",
           "tableTo": "courses",
           "columnsFrom": [
             "courseId"
