@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
+import { refilHearts } from "@/actions/user-progress";
+import { toast } from "sonner";
 
 type Props = {
   hearts: number;
@@ -20,7 +22,9 @@ export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
       return;
     }
 
-    startTransition(() => {});
+    startTransition(() => {
+      refilHearts().catch(() => toast.error("Something went wrong"));
+    });
   };
 
   return (
@@ -39,7 +43,7 @@ export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
           ) : (
             <div className="flex items-center">
               <Image src="/points.svg" alt="Points" height={20} width={20} />
-              <p>50</p>
+              <p>{POINTS_TO_REFILL}</p>
             </div>
           )}
         </Button>
