@@ -64,7 +64,7 @@ export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
       <div className="flex items-center w-full p-4 pt-8 gap-x-4 border-t-2">
         <Image src="/unlimited.svg" alt="Unlimited" height={60} width={60} />
         <div className="flex-1">
-          <p className="text-neutral-700 text-base lg:text-xl">
+          <p className="text-neutral-700 text-base lg:text-xl font-bold">
             Unlimited Hearts
           </p>
         </div>
