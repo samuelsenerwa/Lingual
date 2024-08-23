@@ -10,6 +10,7 @@ import {
 } from "@/db/queries";
 import { Separator } from "@radix-ui/react-separator";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
+import { Promo } from "@/components/promo";
 
 const LearderboardPage = async () => {
   const userProgressData = getUserProgress();
@@ -38,6 +39,7 @@ const LearderboardPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
+        {!isPro && <Promo />}
       </StickyWrapper>
       <FeedWrapper>
         <div className="w-full flex flex-col items-center ">

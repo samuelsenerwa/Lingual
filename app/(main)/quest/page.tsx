@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { Progress } from "@radix-ui/react-progress";
+import { Promo } from "@/components/promo";
 
 const quests = [
   {
@@ -54,6 +55,7 @@ const QuestPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
+        {!isPro && <Promo />}
       </StickyWrapper>
       <FeedWrapper>
         <div className="w-full flex flex-col items-center ">
