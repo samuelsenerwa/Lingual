@@ -1,4 +1,10 @@
-import { Datagrid, List, ReferenceField, TextField } from "react-admin";
+import {
+  Datagrid,
+  List,
+  NumberInput,
+  ReferenceField,
+  TextField,
+} from "react-admin";
 
 export const UnitList = () => {
   return (
@@ -8,7 +14,7 @@ export const UnitList = () => {
         <TextField source="title" />
         <TextField source="description" />
         <ReferenceField source="courseId" reference="courses" />
-        <TextField source="order" />
+        <NumberInput source="order" />
       </Datagrid>
     </List>
   );
