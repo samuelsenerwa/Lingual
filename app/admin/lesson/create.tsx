@@ -11,9 +11,9 @@ export const LessonCreate = () => {
   return (
     <Create>
       <SimpleForm>
-        <TextInput source="title" validate={[required()]} label="Title" />
+        <NumberInput source="order" label="Order" validate={[required()]} />
+        <TextInput source="title" label="Title" validate={[required()]} />
         <ReferenceInput source="unitId" reference="units" />
-        <NumberInput source="order" validate={[required()]} label="Order" />
       </SimpleForm>
     </Create>
   );

@@ -1,7 +1,7 @@
 import {
   Datagrid,
   List,
-  NumberInput,
+  NumberField,
   ReferenceField,
   TextField,
 } from "react-admin";
@@ -11,9 +11,9 @@ export const LessonList = () => {
     <List>
       <Datagrid rowClick="edit">
         <TextField source="id" />
+        <NumberField source="order" />
         <TextField source="title" />
         <ReferenceField source="unitId" reference="units" />
-        <NumberInput source="order" />
       </Datagrid>
     </List>
   );
